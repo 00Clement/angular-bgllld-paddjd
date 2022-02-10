@@ -1,0 +1,39 @@
+<h2>Products</h2>
+
+<!-- On fait un for sur la constante products se trouvant dans proucts.ts -->
+<div *ngFor="let product of products">
+  <!-- Avec *ngFor, le <div> se répète pour chaque produit de la liste -->
+
+  <h3>
+    <a
+      [title]="product.name + ' details'"
+      [routerLink]="['/products', product.id]"
+    >
+      <!-- La directive Title affiche le nom de produit et le détail quand on slide sur un produit. Ceci est facultatif -->
+
+      <!-- La directive RouterLink vous aide à personnaliser l'élément d'ancrage. Dans ce cas, la route, ou URL, contient un segment fixe, /products. -->
+
+      {{ product.name }}
+    </a>
+  </h3>
+
+  <p *ngIf="product.description">Description: {{ product.description }}</p>
+  <!-- *ngIf demande à Angular de crée la balise <p> que si il y a une description -->
+
+  <button type="button" (click)="share()">
+    <!-- Le bouton Share est utilisé pour que les utilisateurs puissent partager un produit. Il faut lier l'événement click du bouton à la méthode share() dans product-list.component.ts. La liaison d'événement utilise un ensemble de parenthèses, ( ), autour de l'événement, comme dans l'événement (clic) sur l'élément <button> -->
+
+    <!-- Quand on clique, cela appelle ma méthode share() se trouvant dans product-list.component.ts-->
+    Share
+  </button>
+
+  <!-- Façon d'appeler l'app product-alerts-->
+  <app-product-alerts [product]="product" (notify)="onNotify()">
+  </app-product-alerts>
+</div>
+
+<!-- 
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at https://angular.io/license
+-->
