@@ -1,14 +1,18 @@
 <h3>Cart</h3>
 
 <p>
+  <!-- url : http://localhost:4200/shipping -->
+  <!-- Le lien vers l'url et le composant associé est définis dans app.module.ts -->
   <a routerLink="/shipping">Shipping Prices</a>
 </p>
 
 <div class="cart-item" *ngFor="let item of items">
   <span>{{ item.name }} </span>
   <span>{{ item.price | currency }}</span>
+  <!-- Currency transforme un nombre en une chaîne monétaire, formatée selon les règles locales qui déterminent la taille et le séparateur de groupe, le caractère décimal et d'autres configurations spécifiques aux paramètres régionaux. -->
 </div>
 
+<!-- Une fois le formulaire rempli, cela va appeler le méthode onSubmit de cart.component.ts -->
 <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
   <div>
     <label for="name"> Name </label>

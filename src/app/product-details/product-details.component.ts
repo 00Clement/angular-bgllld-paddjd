@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Product, products } from '../products';
 import { CartService } from '../cart.service';
 
+// Composant qui affiche le detail d'un produit
+
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',

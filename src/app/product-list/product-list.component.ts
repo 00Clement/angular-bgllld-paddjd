@@ -1,6 +1,8 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { products } from '../products';
 
+//Composent qui Affiche la liste des produits disponibles à l'achat
+
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',

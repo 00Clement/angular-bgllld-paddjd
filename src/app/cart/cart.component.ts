@@ -3,6 +3,8 @@ import { FormBuilder } from '@angular/forms';
 
 import { CartService } from '../cart.service';
 
+// Composent qui représente un panier d'achat et le nécessaire pour commander.
+
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -11,6 +13,7 @@ import { CartService } from '../cart.service';
 export class CartComponent implements OnInit {
   items = this.cartService.getItems();
 
+  // création d'un checkoutForm vide
   checkoutForm = this.formBuilder.group({
     name: '',
     address: '',
@@ -25,6 +28,7 @@ export class CartComponent implements OnInit {
     // Process checkout data here
     this.items = this.cartService.clearCart();
     console.warn('Your order has been submitted', this.checkoutForm.value);
+    window.alert('Your order has been submitted' + this.checkoutForm.value);
     this.checkoutForm.reset();
   }
 

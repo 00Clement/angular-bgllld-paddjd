@@ -1,6 +1,8 @@
 <h3>Shipping Prices</h3>
 
 <div class="shipping-item" *ngFor="let shipping of shippingCosts | async">
+  <!-- Le canal asynchrone renvoie la dernière valeur d'un flux de données et continue de le faire pendant toute la durée de vie d'un composant donné. Lorsque Angular détruit ce composant, le tuyau asynchrone s'arrête automatiquement -->
   <span>{{ shipping.type }}</span>
   <span>{{ shipping.price | currency }}</span>
+  <!-- Currency transforme un nombre en une chaîne monétaire, formatée selon les règles locales qui déterminent la taille et le séparateur de groupe, le caractère décimal et d'autres configurations spécifiques aux paramètres régionaux. -->
 </div>
